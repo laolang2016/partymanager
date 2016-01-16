@@ -7,6 +7,9 @@
 <title>党团关系管理系统--错误页</title>
 </head>
 <body>
-<h1>用户名或密码错误</h1>
+<%
+	String error = (String)request.getAttribute("loginError");
+	out.print(error);
+%>
 </body>
 </html>

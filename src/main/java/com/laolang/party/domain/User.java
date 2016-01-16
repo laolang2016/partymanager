@@ -2,37 +2,42 @@ package com.laolang.party.domain;
 
 public class User {
 
+
+	
+	
 	public User() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-
-	public User(String name, String pwd) {
+	public User(int level, String name, String pwd) {
 		super();
-		this.name = name;
-		this.pwd = pwd;
+		this.user_level = level;
+		this.user_id = name;
+		this.user_pwd = pwd;
 	}
-
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", pwd=" + pwd + "]";
+		return "User [level=" + user_level + ", name=" + user_id + ", pwd=" + user_pwd + "]";
 	}
-
+	public int getLevel() {
+		return user_level;
+	}
+	public void setLevel(int level) {
+		this.user_level = level;
+	}
 	public String getName() {
-		return name;
+		return user_id;
 	}
-
 	public void setName(String name) {
-		this.name = name;
+		this.user_id = name;
 	}
-
 	public String getPwd() {
-		return pwd;
+		return user_pwd;
 	}
-
 	public void setPwd(String pwd) {
-		this.pwd = pwd;
+		this.user_pwd = pwd;
 	}
-
-	private String name;
-	private String pwd;
+	private int user_level;
+	private String user_id;
+	private String user_pwd;
 }

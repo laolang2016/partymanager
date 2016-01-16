@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.laolang.party.dao.UserDao;
+import com.laolang.party.dao.UserDaoImpl;
 import com.laolang.party.domain.User;
 
 /**
@@ -39,19 +41,23 @@ public class LoginServlet extends HttpServlet {
 		String userpwd = request.getParameter("userpwd");
 		ServletContext servletContext = getServletContext();
 		RequestDispatcher dispatcher = null;
-		if( "xiaodaima".equals(username) && "123456".equals(userpwd)){
-//			response.sendRedirect("/index.jsp");
-			User user = new User(username,userpwd);
+		UserDao dao = new UserDaoImpl();
+		User user = dao.select(username);
+		
+		
+		if( null == user || !username.equals(user.getName()) ){
+			request.setAttribute("loginError", "该用户不存在");
+			dispatcher = servletContext.getRequestDispatcher("/error.jsp");
+		}else if( !userpwd.equals(user.getPwd())){
+			request.setAttribute("loginError", "密码不正确");
+			dispatcher = servletContext.getRequestDispatcher("/error.jsp");
+		}else{
 			request.getSession().setAttribute("user", user);
 			response.sendRedirect("/party/index.jsp");
-//			dispatcher = servletContext.getRequestDispatcher("/index.jsp");
 			return ;
-		}else{
-			request.setAttribute("loginError", "用户名或密码不正确");
-//			dispatcher = servletContext.getRequestDispatcher("/login.jsp");
-			response.sendRedirect("/party/error.jsp");
 		}
-//		dispatcher.forward(request, response);
+		
+		dispatcher.forward(request, response);
 		
 	}
 
