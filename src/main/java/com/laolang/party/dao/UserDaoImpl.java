@@ -34,23 +34,7 @@ public class UserDaoImpl implements UserDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
-			try {
-				rs.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
-				ps.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			DButil.close(conn, ps, rs);
 		}
 		
 		return null;

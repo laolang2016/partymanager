@@ -19,6 +19,9 @@
                         	欢迎：${user.name }
                         </c:otherwise>
                     </c:choose>
+                    
+                    <a href="tuanapplication.jsp">团员申请</a>
+                    <a href="TuanListServlet">团员查看</a>
 
 </body>
 </html>

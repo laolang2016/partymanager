@@ -10,9 +10,29 @@
   	<description></description>
   	<servlet-class>com.laolang.party.servlet.LoginServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>TuanApplicationServlet</servlet-name>
+  	<display-name>TuanApplicationServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.laolang.party.servlet.TuanApplicationServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>TuanListServlet</servlet-name>
+  	<display-name>TuanListServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.laolang.party.servlet.TuanListServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TuanApplicationServlet</servlet-name>
+  	<url-pattern>/TuanApplicationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TuanListServlet</servlet-name>
+  	<url-pattern>/TuanListServlet</url-pattern>
   </servlet-mapping>
   
 	
